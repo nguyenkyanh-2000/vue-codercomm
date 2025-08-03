@@ -8,8 +8,8 @@
         </h2>
       </div>
 
-      <Card class="p-6">
-        <Alert v-if="errorMessage" variant="destructive" class="mb-4">
+      <Card class="p-8">
+        <Alert v-if="errorMessage" variant="destructive" class="mb-6">
           <AlertDescription>
             {{ errorMessage }}
           </AlertDescription>
@@ -18,47 +18,57 @@
         <Form
           :validation-schema="registerSchema"
           :on-submit="onSubmit"
-          class="space-y-4"
+          class="space-y-6"
         >
           <FormField name="name" v-slot="{ field, errorMessage }">
-            <Label for="name">Name</Label>
-            <Input
-              id="name"
-              v-bind="field"
-              type="text"
-              placeholder="Enter your name"
-              :class="{ 'border-destructive': errorMessage }"
-            />
+            <div class="flex flex-col gap-2">
+              <Label for="name" class="block">Name</Label>
+              <Input
+                id="name"
+                v-bind="field"
+                type="text"
+                placeholder="Enter your name"
+                :class="{ 'border-destructive': errorMessage }"
+              />
+            </div>
           </FormField>
 
           <FormField name="email" v-slot="{ field, errorMessage }">
-            <Label for="email">Email</Label>
-            <Input
-              id="email"
-              v-bind="field"
-              type="email"
-              placeholder="Enter your email"
-              :class="{ 'border-destructive': errorMessage }"
-            />
+            <div class="flex flex-col gap-2">
+              <Label for="email" class="block">Email</Label>
+              <Input
+                id="email"
+                v-bind="field"
+                type="email"
+                placeholder="Enter your email"
+                :class="{ 'border-destructive': errorMessage }"
+              />
+            </div>
           </FormField>
 
           <FormField name="password" v-slot="{ field, errorMessage }">
-            <Label for="password">Password</Label>
-            <Input
-              id="password"
-              v-bind="field"
-              type="password"
-              placeholder="Enter your password"
-              :class="{ 'border-destructive': errorMessage }"
-            />
+            <div class="flex flex-col gap-2">
+              <Label for="password" class="block">Password</Label>
+              <Input
+                id="password"
+                v-bind="field"
+                type="password"
+                placeholder="Enter your password"
+                :class="{ 'border-destructive': errorMessage }"
+              />
+            </div>
           </FormField>
 
-          <Button type="submit" class="w-full" :disabled="authStore.isLoading">
+          <Button
+            type="submit"
+            class="w-full mt-6"
+            :disabled="authStore.isLoading"
+          >
             {{ authStore.isLoading ? "Creating account..." : "Sign up" }}
           </Button>
         </Form>
 
-        <div class="mt-4 text-center">
+        <div class="mt-6 text-center">
           <p class="text-sm text-muted-foreground">
             Already have an account?
             <router-link to="/login" class="text-primary hover:underline">
