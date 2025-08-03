@@ -35,3 +35,7 @@ export interface ReactionResponse {
   reaction: Reaction;
   error?: string;
 }
+
+export interface UserResponse {
+  user: User;
+}

@@ -58,7 +58,7 @@
                 class="flex items-center gap-3 flex-1 hover:opacity-80 transition-opacity"
               >
                 <Avatar class="h-10 w-10">
-                  <AvatarImage :src="user.avatarUrl" />
+                  <AvatarImage :src="user.avatarUrl || ''" />
                   <AvatarFallback>{{ getInitials(user.name) }}</AvatarFallback>
                 </Avatar>
                 <div class="flex flex-col">
@@ -80,8 +80,8 @@ import {
   User,
   Settings,
   Hash,
-  Users,
-  Handshake,
+  // Users,
+  // Handshake,
 } from "lucide-vue-next";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -104,7 +104,7 @@ const navItems = [
 ];
 
 const suggestedUsers = [
-  { _id: "techhub", name: "TechHub Academy" },
-  { _id: "learnspace", name: "LearnSpace" },
+  { _id: "techhub", name: "TechHub Academy", avatarUrl: null },
+  { _id: "learnspace", name: "LearnSpace", avatarUrl: null },
 ];
 </script>

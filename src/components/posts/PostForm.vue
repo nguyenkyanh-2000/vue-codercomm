@@ -19,7 +19,7 @@
         </RouterLink>
 
         <div class="flex-1">
-          <FormField name="content" v-slot="{ field, errorMessage }">
+          <FormField name="content" v-slot="{ field }">
             <Textarea
               v-bind="field"
               :placeholder="`What's on your mind, ${firstName}?`"
@@ -43,7 +43,7 @@
 import { computed } from "vue";
 import { usePostsStore } from "@/stores/posts";
 import { useAuthStore } from "@/stores/auth";
-import { postSchema, type PostForm } from "@/lib/validations";
+import { postSchema } from "@/lib/validations";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -59,7 +59,7 @@ const firstName = computed(() => {
   return currentUser.value?.name?.split(" ")[0] || "";
 });
 
-const onSubmit = async (values: PostForm, actions: any) => {
+const onSubmit = async (values: any, actions: any) => {
   try {
     await postsStore.createPost(values);
     // Reset the form after successful post creation

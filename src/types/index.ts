@@ -3,6 +3,17 @@ export interface User {
   name: string;
   email: string;
   avatarUrl?: string;
+  city?: string;
+  country?: string;
+  company?: string;
+  jobTitle?: string;
+  aboutMe?: string;
+  coverUrl?: string;
+  postCount?: number;
+  facebookLink?: string;
+  instagramLink?: string;
+  linkedinLink?: string;
+  twitterLink?: string;
 }
 
 export interface Reaction {

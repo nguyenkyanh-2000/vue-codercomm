@@ -47,9 +47,9 @@ const getUserReaction = (emoji: string) => {
   );
 };
 
-const getReactionUsers = (emoji: string) => {
-  return props.post.reactions?.filter((r) => r.emoji === emoji) || [];
-};
+// const getReactionUsers = (emoji: string) => {
+//   return props.post.reactions?.filter((r) => r.emoji === emoji) || [];
+// };
 
 const handleReaction = async (emoji: string) => {
   await postsStore.reactToPost(props.post._id, emoji);

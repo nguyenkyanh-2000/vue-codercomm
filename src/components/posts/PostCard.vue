@@ -4,7 +4,7 @@
     <div class="flex items-center space-x-3 mb-4">
       <RouterLink :to="`/users/${post.author._id}`" class="flex-shrink-0">
         <Avatar class="w-10 h-10 hover:opacity-80 transition-opacity">
-          <AvatarImage :src="post.author.avatarUrl" :alt="post.author.name" />
+          <AvatarImage :src="post.author.avatarUrl || ''" :alt="post.author.name" />
           <AvatarFallback>{{ getInitials(post.author.name) }}</AvatarFallback>
         </Avatar>
       </RouterLink>

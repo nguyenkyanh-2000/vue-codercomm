@@ -32,7 +32,7 @@
 <script setup lang="ts">
 import { useCommentsStore } from "@/stores/comments";
 import { useAuthStore } from "@/stores/auth";
-import { commentSchema, type CommentForm } from "@/lib/validations";
+import { commentSchema } from "@/lib/validations";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -56,7 +56,7 @@ const getInitials = (name: string) => {
     .slice(0, 2);
 };
 
-const onSubmit = async (values: CommentForm, actions: any) => {
+const onSubmit = async (values: any, actions: any) => {
   try {
     await commentsStore.createComment(props.postId, values);
     // Reset the form after successful comment creation

@@ -3,7 +3,7 @@
     <RouterLink :to="`/users/${comment.author._id}`" class="flex-shrink-0">
       <Avatar class="w-8 h-8 hover:opacity-80 transition-opacity">
         <AvatarImage
-          :src="comment.author.avatarUrl"
+          :src="comment.author.avatarUrl || ''"
           :alt="comment.author.name"
         />
         <AvatarFallback>{{ getInitials(comment.author.name) }}</AvatarFallback>
@@ -40,5 +40,5 @@ interface Props {
   postId: string;
 }
 
-const props = defineProps<Props>();
+defineProps<Props>();
 </script>

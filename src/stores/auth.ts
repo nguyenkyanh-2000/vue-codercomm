@@ -45,7 +45,7 @@ export const useAuthStore = defineStore("auth", () => {
       error.value = err.response?.data?.message || "Login failed";
       toast({
         title: "Login Failed",
-        description: error.value,
+        description: error.value || undefined,
         variant: "destructive",
       });
       throw err;
@@ -74,7 +74,7 @@ export const useAuthStore = defineStore("auth", () => {
       error.value = err.response?.data?.message || "Registration failed";
       toast({
         title: "Registration Failed",
-        description: error.value,
+        description: error.value || undefined,
         variant: "destructive",
       });
       throw err;
@@ -105,8 +105,8 @@ export const useAuthStore = defineStore("auth", () => {
       error.value = null;
 
       const response = await api.put("/users/me", updateData);
-      setCurrentUser(response.user);
-      return response.user;
+      setCurrentUser(response.data.user);
+      return response.data.user;
     } catch (err: any) {
       console.error("Failed to update user:", err);
       error.value = err.response?.data?.message || "Failed to update user";
